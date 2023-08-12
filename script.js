@@ -2,6 +2,7 @@ const header = document.querySelector(".header");
 const nav = document.querySelector(".nav");
 const startedLink = document.querySelector(".started_link");
 const navList = document.querySelector(".nav_list");
+const supLinkDissp = document.querySelector(".sup_link--disp");
 const logo = document.querySelector(".logo");
 const navIcon = document.querySelector(".nav_icon");
 const overlay = document.querySelector(".overlay");
@@ -13,10 +14,12 @@ const mediaQuery2 = window.matchMedia("(max-width: 35.13rem)");
 
 // Listen to media query change
 if (mediaQuery1.matches) {
+  supLinkDissp.setAttribute("href", "https://programs.bugbeat.tech/");
+  supLinkDissp.setAttribute("target", "_blank");
   startedLink.classList.add("hidden");
   navList.insertAdjacentHTML(
     "beforeend",
-    `<a href="https://bugbounty.createaforum.com/" class="nav_link started_link flex"
+    `<a target="_blank" href="start" class="nav_link started_link flex"
     >Try Bugbeat</a>`
   );
 }
@@ -59,6 +62,19 @@ const stickyNav = function (entries) {
   if (!entry.isIntersecting) header.classList.add("sticky");
   else header.classList.remove("sticky");
 };
+
+// Sup Links
+const supSrc = document.querySelector(".sup_src");
+const supLink = document.querySelector(".sup_link--disp");
+const supLinks = document.querySelector(".sup_links");
+
+let timeoutId;
+
+supLink.addEventListener("mouseover", function () {
+  clearTimeout(timeoutId);
+  supLinks.classList.add("sup_links--active");
+  wait(3).then(() => supLinks.classList.remove("sup_links--active"));
+});
 
 // Slider
 const slider = function () {
