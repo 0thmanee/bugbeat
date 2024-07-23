@@ -14,7 +14,7 @@ const mediaQuery2 = window.matchMedia("(max-width: 35.13rem)");
 
 // Listen to media query change
 if (mediaQuery1.matches) {
-  supLinkDissp.setAttribute("href", "https://programs.bugbeat.tech/");
+  supLinkDissp.setAttribute("href", "https://bugbeatprograms.netlify.app");
   supLinkDissp.setAttribute("target", "_blank");
   startedLink.classList.add("hidden");
   navList.insertAdjacentHTML(
